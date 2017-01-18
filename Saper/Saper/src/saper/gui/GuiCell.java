@@ -49,7 +49,7 @@ public class GuiCell implements Cell<Graphics> {
 	public void drawCell(Graphics paint, boolean real) {
 
 		BufferedImage img = null;
-		String src = "resources/empty.gif";
+		String src = "resources/0.gif";
 		
 
 		if("bomb".equals(type))
