@@ -1,6 +1,6 @@
 package saper.gui;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +49,9 @@ public class GuiCell implements Cell<Graphics> {
 	public void drawCell(Graphics paint, boolean real) {
 
 		BufferedImage img = null;
-		String src = "resources/3.gif";
+		String src = "resources/empty.gif";
+		
+
 		if("bomb".equals(type))
 			src = "resources/mine.gif";
 		try {
@@ -57,7 +59,8 @@ public class GuiCell implements Cell<Graphics> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		paint.drawImage(img, x * 19, y * 19, 18, 18, null);
+		paint.drawImage(img, x * 18, y * 18, 17, 17, null);
+		
 	}
 
 }

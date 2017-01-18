@@ -10,7 +10,7 @@ import saper.Cell;
 
 public class GuiBoard extends JPanel implements Board {
 
-	private final int PADDING =12;
+	//private final int PADDING =12;
 	private Cell<Graphics>[][] cells;
 
 	@Override
