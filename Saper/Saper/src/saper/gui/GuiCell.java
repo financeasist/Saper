@@ -10,7 +10,11 @@ import javax.imageio.ImageIO;
 import saper.Cell;
 
 public class GuiCell implements Cell<Graphics> {
+	private boolean bomb;
+	private boolean suggestBomb = false;
+	private boolean suggestEmpty = false;
 
+	// Cell position into board array
 	private int x;
 	private int y;
 	private String type;
@@ -25,25 +29,27 @@ public class GuiCell implements Cell<Graphics> {
 
 	@Override
 	public boolean isBomb() {
-		return false;
+		return this.bomb;
 	}
 
 	@Override
 	public boolean isGuessedBomb() {
-		return false;
+		return this.suggestBomb;
 	}
 
 	@Override
 	public boolean isGuessedEmpty() {
-		return false;
+		return this.suggestEmpty;
 	}
 
 	@Override
 	public void suggestEmpty() {
+		this.suggestEmpty = true;
 	}
 
 	@Override
 	public void suggestBomb() {
+		this.suggestBomb = true;
 	}
 
 	@Override

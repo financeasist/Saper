@@ -40,4 +40,10 @@ public class ConsoleBoard implements Board {
 		}
 		System.out.println();
 	}
+
+	@Override
+	public void drawCell(int x, int y, String type) {
+		// TODO Auto-generated method stub
+		
+	}
 }

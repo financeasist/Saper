@@ -1,13 +1,11 @@
 package saper.gui;
 
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import saper.BaseAction;
-import saper.Cell;
 import saper.GeneratorBoard;
 import saper.SaperLogic;
 import saper.logics.Easy;
@@ -78,6 +76,7 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 		}
 		if (x == 1 && y == 1) {
 			if (button == 1) {
+				LOGIC.shouldBang(x, y);
 				board.drawCell(x, y, "bang");
 			}
 			if (button == 3) {
