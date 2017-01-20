@@ -10,7 +10,7 @@ import saper.Cell;
 
 public class GuiBoard extends JPanel implements Board {
 
-	//private final int PADDING =12;
+	
 	private Cell<Graphics>[][] cells;
 
 	@Override
@@ -21,7 +21,7 @@ public class GuiBoard extends JPanel implements Board {
 				for (int y = 0; y != cells[0].length; y++) {
 					graphics.setColor(Color.black);
 					cells[x][y].drawCell(graphics, false);
-					//graphics.drawRect(x * PADDING, y * PADDING, PADDING, PADDING);
+					
 				}
 			}
 		}
@@ -49,5 +49,11 @@ public class GuiBoard extends JPanel implements Board {
 	public void drawCongratulate() {
 
 	}
+	public Cell<Graphics>[][] getCells() {
+		return cells;
+	}
 
+	public void setCells(Cell<Graphics>[][] cells) {
+		this.cells = cells;
+	}
 }

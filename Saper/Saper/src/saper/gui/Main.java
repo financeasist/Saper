@@ -50,12 +50,13 @@ public class Main {
 		jt_mines.setBackground(Color.black);
 		jt_time.setBackground(Color.black);
 		final JButton generate = new JButton("");
-		generate.setIcon(new ImageIcon("D:\\Repository\\Saper\\Saper\\resources\\new game.gif"));
+		generate.setIcon(new ImageIcon("resources\\new game.gif"));
 		generate.setBorder(BorderFactory.createLoweredSoftBevelBorder());
 	
 		generate.addActionListener(new GuiAction(new Easy(), board, new GeneratorBoardImpl()));
 		controlPanel.add(generate);
 		controlPanel.add(jt_time);
+		
 		centre(frame);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

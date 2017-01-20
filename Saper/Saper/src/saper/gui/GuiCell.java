@@ -14,6 +14,7 @@ public class GuiCell implements Cell<Graphics> {
 	private int x;
 	private int y;
 	private String type;
+	private Boolean isVisible = false;
 
 	public GuiCell(int x, int y, String type) {
 		super();
@@ -49,18 +50,53 @@ public class GuiCell implements Cell<Graphics> {
 	public void drawCell(Graphics paint, boolean real) {
 
 		BufferedImage img = null;
-		String src = "resources/0.gif";
-		
+		String src = "resources/empty.gif";
 
-		if("bomb".equals(type))
+		if ("one".equals(type))
+			src = "resources/1.gif";
+		if ("two".equals(type))
+			src = "resources/2.gif";
+		if ("three".equals(type))
+			src = "resources/3.gif";
+		if ("four".equals(type))
+			src = "resources/4.gif";
+		if ("five".equals(type))
+			src = "resources/5.gif";
+		if ("six".equals(type))
+			src = "resources/6.gif";
+		if ("seven".equals(type))
+			src = "resources/7.gif";
+		if ("eight".equals(type))
+			src = "resources/8.gif";
+		if ("bomb".equals(type))
 			src = "resources/mine.gif";
+		if ("flag".equals(type))
+			src = "resources/flag.gif";
+		if (!isVisible)
+			src = "resources/0.gif";
 		try {
 			img = ImageIO.read(new File(src));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		paint.drawImage(img, x * 18, y * 18, 17, 17, null);
-		
+		paint.drawImage(img, x * 18 + 7, y * 18 + 7, 17, 17, null);
+
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Boolean getIsVisible() {
+		return isVisible;
+	}
+
+	public void setIsVisible(Boolean isVisible) {
+		this.isVisible = isVisible;
 	}
 
 }
