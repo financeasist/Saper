@@ -35,7 +35,7 @@ public class GuiBoard extends JPanel implements Board {
 
 	@Override
 	public void drawCell(int x, int y, String type) {
-		cells[x][y] = new GuiCell(x, y, type);
+		cells[x][y] = new GuiCell(x, y, type, false);
 		GuiCell cell = (GuiCell) cells[x][y];
 		cell.setIsVisible(true);
 		this.repaint();

@@ -1,5 +1,8 @@
 package saper.gui;
 
+/**
+ * @author Roman Grupskyi
+ */
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -20,11 +23,12 @@ public class GuiCell implements Cell<Graphics> {
 	private String type;
 	private Boolean isVisible = false;
 
-	public GuiCell(int x, int y, String type) {
+	public GuiCell(int x, int y, String type, boolean bomb) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.type = type;
+		this.bomb = bomb;
 	}
 
 	@Override
