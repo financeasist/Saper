@@ -21,9 +21,11 @@ import java.awt.event.WindowEvent;
  * @since 13.01.2017
  */
 public class Main {
+	private static final GeneratorBoardImpl GENERATOR = new GeneratorBoardImpl();
 	private static final JPanel controlPanel = new JPanel();
 //	private static final JPanel controlPanelForMenu = new JPanel();
-	private static final GuiBoard board = new GuiBoard();
+	private static final GuiBoard BOARD = new GuiBoard();
+	private static final Easy LOGIC = new Easy();
 	static JTextField jt_mines, jt_time;
 
 	public static void main(String[] arg) {
@@ -34,8 +36,8 @@ public class Main {
 		frame.setSize(205, 300);
 		//frame.getContentPane().add(controlPanelForMenu, BorderLayout.PAGE_START);
 		frame.getContentPane().add(controlPanel, BorderLayout.PAGE_START);
-		frame.getContentPane().add(board, BorderLayout.CENTER);
-		board.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7),	BorderFactory.createLoweredBevelBorder()));
+		frame.getContentPane().add(BOARD, BorderLayout.CENTER);
+		BOARD.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7),	BorderFactory.createLoweredBevelBorder()));
 		
 		jt_mines = new JTextField(3);
 		jt_mines.setFont(new Font("DigtalFont.TTF", Font.BOLD, 25));
@@ -53,7 +55,7 @@ public class Main {
 		generate.setIcon(new ImageIcon("resources\\new game.gif"));
 		generate.setBorder(BorderFactory.createLoweredSoftBevelBorder());
 	
-		generate.addActionListener(new GuiAction(new Easy(), board, new GeneratorBoardImpl()));
+		generate.addActionListener(new GuiAction(LOGIC, BOARD, GENERATOR));
 		controlPanel.add(generate);
 		controlPanel.add(jt_time);
 		

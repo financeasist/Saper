@@ -69,9 +69,11 @@ public class GuiCell implements Cell<Graphics> {
 		if ("eight".equals(type))
 			src = "resources/8.gif";
 		if ("bomb".equals(type))
-			src = "resources/mine.gif";
+			src = "resources/bomb.gif";
 		if ("flag".equals(type))
 			src = "resources/flag.gif";
+		if ("bang".equals(type))
+			src = "resources/bang.gif";
 		if (!isVisible)
 			src = "resources/0.gif";
 		try {

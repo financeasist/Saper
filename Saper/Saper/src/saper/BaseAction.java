@@ -29,7 +29,7 @@ public class BaseAction implements UserAction {
 	@Override
 	public void select(int x, int y, boolean bomb) {
 		this.logic.suggest(x, y, bomb);
-		board.drawCell(x, y);
+		board.drawCell(x, y, null);
 		if (this.logic.shouldBang(x, y)) {
 			board.drawBang();
 		}

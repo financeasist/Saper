@@ -21,7 +21,7 @@ public interface Board {
 	 * @param x
 	 * @param y
 	 */
-	void drawCell(int x, int y);
+	void drawCell(int x, int y, String type);
 	
 	/**
 	 * draws explosion, if it was.

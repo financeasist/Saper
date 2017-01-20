@@ -10,10 +10,12 @@ import saper.BaseAction;
 import saper.Cell;
 import saper.GeneratorBoard;
 import saper.SaperLogic;
+import saper.logics.Easy;
 
 public class GuiAction extends BaseAction implements ActionListener, MouseListener {
 
 	private GuiBoard board;
+	private static final Easy LOGIC = new Easy();
 
 	public GuiAction(SaperLogic logic, GuiBoard board, GeneratorBoard generator) {
 		super(logic, board, generator);
@@ -26,25 +28,62 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
 		int button = e.getButton();
-		Cell<Graphics>[][] cells = board.getCells();
-		if (button == 1) {
-			if (x <= 22 && y <= 20) { // це координати cells[0][0]
-				cells[0][0] = new GuiCell(0, 0, "one");
-				GuiCell cell = (GuiCell) cells[0][0];
-				cell.setIsVisible(true);
+		int xc = e.getX();
+		int yc = e.getY();
+		int x = 0, y = 0;
+		if (xc <= 22 && yc <= 20) { // це координати cells[0][0]
+			x = 0;
+			y = 0;
+		}
+		if (xc >= 22 && yc <= 20) { // це координати cells[1][0]
+			x = 1;
+			y = 0;
+		}
+		if (xc <= 20 && yc >= 30) { // це координати cells[0][1]
+			x = 0;
+			y = 1;
+		}
+		if (xc >= 30 && yc >= 30) { // це координати cells[1][1]
+			x = 1;
+			y = 1;
+		}
+		if (x == 0 && y == 0) {
+			if (button == 1) {
+				// if (LOGIC.shouldBang(x, y)){ // чому тут вилітає
+				// nullPointer?
+				// board.drawBang();
+				// }else
+				board.drawCell(x, y, "one");
+			}
+			if (button == 3) {
+				board.drawCell(x, y, "flag");
 			}
 		}
-		if (button == 3) {
-			if (x <= 22 && y <= 20) {// це координати cells[0][0]
-				cells[0][0] = new GuiCell(0, 0, "flag");
-				GuiCell cell = (GuiCell) cells[0][0];
-				cell.setIsVisible(true);
+		if (x == 1 && y == 0) {
+			if (button == 1) {
+				board.drawCell(x, y, "one");
+			}
+			if (button == 3) {
+				board.drawCell(x, y, "flag");
 			}
 		}
-		board.repaint();
+		if (x == 0 && y == 1) {
+			if (button == 1) {
+				board.drawCell(x, y, "one");
+			}
+			if (button == 3) {
+				board.drawCell(x, y, "flag");
+			}
+		}
+		if (x == 1 && y == 1) {
+			if (button == 1) {
+				board.drawCell(x, y, "bang");
+			}
+			if (button == 3) {
+				board.drawCell(x, y, "flag");
+			}
+		}
 	}
 
 	public void mousePressed(MouseEvent e) {
