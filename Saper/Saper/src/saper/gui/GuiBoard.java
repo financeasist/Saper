@@ -8,10 +8,15 @@ import javax.swing.JPanel;
 import saper.Board;
 import saper.Cell;
 
+/**
+ * 
+ * @author Roman Grupskyi
+ *
+ */
 public class GuiBoard extends JPanel implements Board {
 
-	
 	private Cell<Graphics>[][] cells;
+	private boolean real = false;
 
 	@Override
 	protected void paintComponent(Graphics graphics) {
@@ -19,9 +24,8 @@ public class GuiBoard extends JPanel implements Board {
 		if (this.cells != null) {
 			for (int x = 0; x != cells.length; x++) {
 				for (int y = 0; y != cells[0].length; y++) {
-					graphics.setColor(Color.black);
-					cells[x][y].drawCell(graphics, false);
-					
+					cells[x][y].draw(graphics, real);
+
 				}
 			}
 		}
@@ -29,34 +33,34 @@ public class GuiBoard extends JPanel implements Board {
 
 	@Override
 	public void drawBoard(Cell[][] cells) {
-		this.cells = cells;
+		this.cells =  cells;
+		real = false;
 		this.repaint();
 	}
 
 	@Override
-	public void drawCell(int x, int y, String type) {
-		cells[x][y] = new GuiCell(x, y, type, false);
+	public void drawCell(int x, int y) {
+		this.repaint();
+
+	}
+
+	@Override
+	public void drawBang(int x, int y) {
 		GuiCell cell = (GuiCell) cells[x][y];
-		cell.setIsVisible(true);
-		this.repaint();
-
-	}
-
-	@Override
-	public void drawBang() {
+		cell.setType("bang");
+		this.real = true;
 		this.repaint();
 
 	}
 
 	@Override
 	public void drawCongratulate() {
+		this.real = true;
+		this.repaint();
 
 	}
+
 	public Cell<Graphics>[][] getCells() {
 		return cells;
-	}
-
-	public void setCells(Cell<Graphics>[][] cells) {
-		this.cells = cells;
 	}
 }

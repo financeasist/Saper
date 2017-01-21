@@ -13,7 +13,6 @@ import saper.logics.Easy;
 public class GuiAction extends BaseAction implements ActionListener, MouseListener {
 
 	private GuiBoard board;
-	private static final Easy LOGIC = new Easy();
 
 	public GuiAction(SaperLogic logic, GuiBoard board, GeneratorBoard generator) {
 		super(logic, board, generator);
@@ -26,7 +25,7 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		int button = e.getButton();
+		int buttonId = e.getButton();
 		int xc = e.getX();
 		int yc = e.getY();
 		int x = 0, y = 0;
@@ -46,43 +45,7 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 			x = 1;
 			y = 1;
 		}
-		if (x == 0 && y == 0) {
-			if (button == 1) {
-				// if (LOGIC.shouldBang(x, y)){ // чому тут вилітає
-				// nullPointer?
-				// board.drawBang();
-				// }else
-				board.drawCell(x, y, "one");
-			}
-			if (button == 3) {
-				board.drawCell(x, y, "flag");
-			}
-		}
-		if (x == 1 && y == 0) {
-			if (button == 1) {
-				board.drawCell(x, y, "one");
-			}
-			if (button == 3) {
-				board.drawCell(x, y, "flag");
-			}
-		}
-		if (x == 0 && y == 1) {
-			if (button == 1) {
-				board.drawCell(x, y, "one");
-			}
-			if (button == 3) {
-				board.drawCell(x, y, "flag");
-			}
-		}
-		if (x == 1 && y == 1) {
-			if (button == 1) {
-				LOGIC.shouldBang(x, y);
-				board.drawCell(x, y, "bang");
-			}
-			if (button == 3) {
-				board.drawCell(x, y, "flag");
-			}
-		}
+		this.select(x, y, buttonId !=1);
 	}
 
 	public void mousePressed(MouseEvent e) {

@@ -16,7 +16,7 @@ public class Easy implements SaperLogic {
 	@Override
 	public Boolean shouldBang(int x, int y) {
 		final Cell selected = this.cells[x][y];
-		return selected.isBomb() && !selected.isGuessedBomb();
+		return selected.isBomb() && !selected.isSuggestBomb();
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class Easy implements SaperLogic {
 		boolean finish = false;
 		for (Cell[] row : cells) {
 			for (Cell cell : row) {
-				finish = ((cell.isGuessedBomb() && cell.isBomb()) || (cell.isGuessedEmpty() && !cell.isBomb()));
+				finish = ((cell.isSuggestBomb() && cell.isBomb()) || (cell.isSuggestEmpty() && !cell.isBomb()));
 			}
 		}
 		return finish;

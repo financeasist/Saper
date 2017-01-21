@@ -22,7 +22,7 @@ public class ConsoleBoard implements Board {
 		this.redraw(false);
 	}
 
-	public void drawBang() {
+	public void drawBang(int x, int y) {
 		System.out.println("***** BANG ******");
 		this.redraw(true);
 	}
@@ -34,16 +34,12 @@ public class ConsoleBoard implements Board {
 	private void redraw(boolean real) {
 		for (Cell[] row : cells) {
 			for (Cell cell : row) {
-				cell.drawCell(System.out, real);
+				cell.draw(System.out, real);
 			}
 			System.out.println();
 		}
 		System.out.println();
 	}
 
-	@Override
-	public void drawCell(int x, int y, String type) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

@@ -25,12 +25,12 @@ public class ConsoleCell implements Cell<PrintStream> {
 	}
 
 	@Override
-	public boolean isGuessedBomb() {
+	public boolean isSuggestBomb() {
 		return this.suggestBomb;
 	}
 
 	@Override
-	public boolean isGuessedEmpty() {
+	public boolean isSuggestEmpty() {
 		return this.suggestEmpty;
 	}
 
@@ -45,7 +45,7 @@ public class ConsoleCell implements Cell<PrintStream> {
 	}
 
 	@Override
-	public void drawCell(PrintStream paint, boolean real) {
+	public void draw(PrintStream paint, boolean real) {
 		if (real) {
 			if (this.isBomb()) {
 				paint.print("[*] ");
@@ -62,4 +62,8 @@ public class ConsoleCell implements Cell<PrintStream> {
 			}
 		}
 	}
+
+	
+
+	
 }

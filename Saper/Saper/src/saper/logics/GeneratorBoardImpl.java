@@ -14,9 +14,9 @@ public class GeneratorBoardImpl implements GeneratorBoard {
 
 		Cell data[][] = new Cell[2][2];
 
-		data[0][0] = new GuiCell(0, 0, "one", false);
-		data[0][1] = new GuiCell(0, 1, "one", false);
-		data[1][0] = new GuiCell(1, 0, "one", false);
+		data[0][0] = new GuiCell(0, 0, "1", false);
+		data[0][1] = new GuiCell(0, 1, "1", false);
+		data[1][0] = new GuiCell(1, 0, "1", false);
 		data[1][1] = new GuiCell(1, 1, "bomb", true);
 //		for (int x = 0; x <4; x++) {
 //			for (int y = 0; y < 4; y++) {

@@ -9,9 +9,9 @@ public interface Cell<T> {
 
 	boolean isBomb();
 
-	boolean isGuessedEmpty();
+	boolean isSuggestEmpty();
 
-	boolean isGuessedBomb();
+	boolean isSuggestBomb();
 
 	
 	void suggestBomb();
@@ -25,5 +25,5 @@ public interface Cell<T> {
 	 * @param paint
 	 * @param real
 	 */
-	void drawCell(T paint, boolean real);
+	void draw(T paint, boolean real);
 }

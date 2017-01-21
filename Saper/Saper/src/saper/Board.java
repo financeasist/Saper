@@ -21,12 +21,12 @@ public interface Board {
 	 * @param x
 	 * @param y
 	 */
-	void drawCell(int x, int y, String type);
+	void drawCell(int x, int y);
 	
 	/**
-	 * draws explosion, if it was.
+	 * draws explosion.
 	 */
-	void drawBang();
+	void drawBang(int x, int y);
 	
 	/**
 	 * draws congratulations when game is won.
