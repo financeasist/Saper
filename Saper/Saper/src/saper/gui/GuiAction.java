@@ -9,11 +9,21 @@ import saper.BaseAction;
 import saper.GeneratorBoard;
 import saper.SaperLogic;
 import saper.logics.Easy;
-
+/**
+ * 
+ * @author Roman Grupskyi
+ * @version 1.2  21.01.2017
+ *
+ */
 public class GuiAction extends BaseAction implements ActionListener, MouseListener {
 
 	private GuiBoard board;
-
+	/**
+	 * Constructs Base action
+	 * @param logic instance of logic
+	 * @param board instance of board
+	 * @param generator instance of board generator
+	 */
 	public GuiAction(SaperLogic logic, GuiBoard board, GeneratorBoard generator) {
 		super(logic, board, generator);
 		this.board = board;
@@ -26,26 +36,12 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 
 	public void mouseClicked(MouseEvent e) {
 		int buttonId = e.getButton();
+		int clickCount = e.getClickCount();
 		int xc = e.getX();
 		int yc = e.getY();
-		int x = 0, y = 0;
-		if (xc <= 22 && yc <= 20) { // це координати cells[0][0]
-			x = 0;
-			y = 0;
-		}
-		if (xc >= 22 && yc <= 20) { // це координати cells[1][0]
-			x = 1;
-			y = 0;
-		}
-		if (xc <= 20 && yc >= 30) { // це координати cells[0][1]
-			x = 0;
-			y = 1;
-		}
-		if (xc >= 30 && yc >= 30) { // це координати cells[1][1]
-			x = 1;
-			y = 1;
-		}
-		this.select(x, y, buttonId !=1);
+
+		this.select(xc/18, yc/18, buttonId !=1);
+					
 	}
 
 	public void mousePressed(MouseEvent e) {

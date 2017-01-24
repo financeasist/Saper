@@ -9,10 +9,11 @@ import saper.Board;
 import saper.Cell;
 
 /**
- * 
+ * This class describes GuiBoad 
  * @author Roman Grupskyi
- *
+ *	@version 1.2 21.01.2017
  */
+
 public class GuiBoard extends JPanel implements Board {
 
 	private Cell<Graphics>[][] cells;

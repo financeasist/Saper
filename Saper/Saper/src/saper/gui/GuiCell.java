@@ -83,7 +83,7 @@ public class GuiCell implements Cell<Graphics> {
 				this.drawCellType(x, y, paint);
 			} else {
 				// draw closed cell
-				String src = "resources/0.gif";
+				String src = "resources/closed.gif";
 				try {
 					img = ImageIO.read(new File(src));
 				} catch (IOException e) {
@@ -100,7 +100,7 @@ public class GuiCell implements Cell<Graphics> {
 	 * @param y2
 	 * @param paint
 	 */
-	private void drawCellType(int x2, int y2, Graphics paint) { 
+	private void drawCellType(int x, int y, Graphics paint) { 
 		String src = "resources/" + type + ".gif";
 		System.out.println(src);
 		try {
@@ -162,4 +162,16 @@ public class GuiCell implements Cell<Graphics> {
 		this.type = type;
 	}
 
+	public BufferedImage getImg() {
+		return img;
+	}
+
+	public void setImg(BufferedImage img) {
+		this.img = img;
+	}
+
+	public void setBomb(boolean bomb) {
+		this.bomb = bomb;
+	}
+	
 }

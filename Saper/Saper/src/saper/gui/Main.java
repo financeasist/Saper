@@ -37,7 +37,7 @@ public class Main {
 		final JFrame frame = new JFrame();
 		frame.setTitle("Сапер");
 		frame.getContentPane().setLayout(new BorderLayout());
-		frame.setSize(205, 300);
+		frame.setSize(212, 300);
 		// frame.getContentPane().add(controlPanelForMenu,
 		// BorderLayout.PAGE_START);
 		frame.getContentPane().add(controlPanel, BorderLayout.PAGE_START);
@@ -71,10 +71,15 @@ public class Main {
 
 		frame.setVisible(true);
 	}
-
+	 /**
+     * Placing specified as parameter window at the center of the screen
+     *
+     * @param w centered window
+     */
 	public static void centre(Window w) {
 		Dimension us = w.getSize();
 		Dimension them = Toolkit.getDefaultToolkit().getScreenSize();
+		// Coordinates top left corner for application window
 		int newX = (them.width - us.width) / 2;
 		int newY = (them.height - us.height) / 2;
 		w.setLocation(newX, newY);
