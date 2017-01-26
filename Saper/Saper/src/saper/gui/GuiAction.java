@@ -37,10 +37,11 @@ public class GuiAction extends BaseAction implements ActionListener, MouseListen
 	public void mouseClicked(MouseEvent e) {
 		int buttonId = e.getButton();
 		int clickCount = e.getClickCount();
-		int xc = e.getX();
-		int yc = e.getY();
+		int xc = e.getX()/18;
+		int yc = e.getY()/18;
 
-		this.select(xc/18, yc/18, buttonId !=1);
+		this.select(xc, yc, buttonId !=1);
+		
 					
 	}
 

@@ -48,7 +48,8 @@ public class Easy implements SaperLogic {
 		boolean finish = false;
 		for (Cell[] row : cells) {
 			for (Cell cell : row) {
-				finish = ((cell.isSuggestBomb() && cell.isBomb()) || (cell.isSuggestEmpty() && !cell.isBomb()));
+				finish = ((cell.isSuggestBomb() && cell.isBomb())
+						|| (cell.isSuggestEmpty() && !cell.isBomb()));
 			}
 		}
 		return finish;

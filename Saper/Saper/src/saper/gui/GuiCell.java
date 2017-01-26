@@ -141,22 +141,6 @@ public class GuiCell implements Cell<Graphics> {
 		paint.drawImage(img, x * 18 + 7, y * 18 + 7, 17, 17, null);
 
 	}
-	/**
-	 * draws empty cell
-	 * @param x
-	 * @param y
-	 * @param paint
-	 */
-	private void drawEmptyCell(int x, int y, Graphics paint) {
-		String src = "resources/empty.gif";
-		try {
-			img = ImageIO.read(new File(src));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		paint.drawImage(img, x * 18 + 7, y * 18 + 7, 17, 17, null);
-
-	}
 
 	public void setType(String type) {
 		this.type = type;
